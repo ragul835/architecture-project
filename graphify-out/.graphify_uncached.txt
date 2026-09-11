@@ -1,0 +1,8 @@
+/home/dell/arch/public/images/founders.png
+/home/dell/arch/public/images/hero_main.png
+/home/dell/arch/public/images/indian_courtyard.png
+/home/dell/arch/public/images/indian_hero.png
+/home/dell/arch/public/images/loft_after.png
+/home/dell/arch/public/images/loft_before.png
+/home/dell/arch/public/images/tower_seattle.png
+/home/dell/arch/public/images/villa_malibu.png

@@ -1,0 +1,18 @@
+# Dependencies and Next.js output
+node_modules/
+.next/
+.next-dev/
+out/
+.runtime/
+
+# Local secrets and environment overrides
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Logs and local tooling
+*.log
+.DS_Store
+.eslintcache
+*.tsbuildinfo

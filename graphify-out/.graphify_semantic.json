@@ -1,0 +1,20 @@
+{
+  "nodes": [
+    {"id":"public_images_founders_founder_portrait","label":"Founder Portrait","file_type":"image","source_file":"/home/dell/arch/public/images/founders.png","source_location":null},
+    {"id":"public_images_hero_main_hero_image","label":"Luxury Coastal Residence Hero Image","file_type":"image","source_file":"/home/dell/arch/public/images/hero_main.png","source_location":null},
+    {"id":"public_images_indian_courtyard_indian_courtyard","label":"Indian Courtyard","file_type":"image","source_file":"/home/dell/arch/public/images/indian_courtyard.png","source_location":null},
+    {"id":"public_images_indian_hero_hero_image","label":"Contemporary Indian Courtyard Residence","file_type":"image","source_file":"/home/dell/arch/public/images/indian_hero.png","source_location":null},
+    {"id":"public_images_loft_after_industrial_loft_interior","label":"Renovated Industrial Loft","file_type":"image","source_file":"/home/dell/arch/public/images/loft_after.png","source_location":null},
+    {"id":"public_images_loft_before_unrenovated_industrial_loft","label":"Unrenovated Industrial Loft","file_type":"image","source_file":"/home/dell/arch/public/images/loft_before.png","source_location":null},
+    {"id":"public_images_tower_seattle_aurora_tower","label":"Aurora Tower","file_type":"image","source_file":"/home/dell/arch/public/images/tower_seattle.png","source_location":null},
+    {"id":"public_images_villa_malibu_villa_malibu","label":"Malibu Cliffside Villa","file_type":"image","source_file":"/home/dell/arch/public/images/villa_malibu.png","source_location":null}
+  ],
+  "edges": [
+    {"source":"public_images_loft_before_unrenovated_industrial_loft","target":"public_images_loft_after_industrial_loft_interior","relation":"conceptually_related_to","confidence":"INFERRED","confidence_score":0.95,"source_file":"/home/dell/arch/public/images/loft_after.png","source_location":null,"weight":1.0},
+    {"source":"public_images_hero_main_hero_image","target":"public_images_villa_malibu_villa_malibu","relation":"semantically_similar_to","confidence":"INFERRED","confidence_score":0.85,"source_file":"/home/dell/arch/public/images/hero_main.png","source_location":null,"weight":1.0},
+    {"source":"public_images_indian_courtyard_indian_courtyard","target":"public_images_indian_hero_hero_image","relation":"semantically_similar_to","confidence":"INFERRED","confidence_score":0.85,"source_file":"/home/dell/arch/public/images/indian_courtyard.png","source_location":null,"weight":1.0}
+  ],
+  "hyperedges": [],
+  "input_tokens": 4236,
+  "output_tokens": 4504
+}

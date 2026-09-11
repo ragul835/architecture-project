@@ -1,0 +1,402 @@
+{
+  "communities": {
+    "0": [
+      "src_app_api_projects_route",
+      "src_app_api_projects_route_get",
+      "src_app_api_projects_slug_route",
+      "src_app_api_projects_slug_route_get",
+      "src_app_page",
+      "src_app_page_homepage",
+      "src_app_portfolio_page",
+      "src_app_portfolio_page_portfoliopage",
+      "src_app_portfolio_slug_page",
+      "src_app_portfolio_slug_page_projectdetailpage",
+      "src_components_interactive_beforeafterslider",
+      "src_components_interactive_beforeafterslider_beforeafterslider",
+      "src_components_interactive_beforeafterslider_beforeaftersliderprops",
+      "src_components_interactive_lightboxmodal",
+      "src_components_interactive_lightboxmodal_lightboxmodal",
+      "src_components_interactive_lightboxmodal_lightboxmodalprops",
+      "src_components_interactive_threedviewer",
+      "src_components_interactive_threedviewer_lightmode",
+      "src_components_interactive_threedviewer_threedviewer",
+      "src_components_interactive_threedviewer_threedviewerprops",
+      "src_components_portfolio_projectcard",
+      "src_components_portfolio_projectcard_projectcard",
+      "src_components_portfolio_projectcard_projectcardprops",
+      "src_components_portfolio_projectfilter",
+      "src_components_portfolio_projectfilter_categories",
+      "src_components_portfolio_projectfilter_projectfilter",
+      "src_components_portfolio_projectfilter_projectfilterprops",
+      "src_data_projectsdata",
+      "src_data_projectsdata_projects_data",
+      "src_data_servicesdata",
+      "src_data_servicesdata_services_data",
+      "src_lib_types",
+      "src_lib_types_beforeafterdata",
+      "src_lib_types_contactformdata",
+      "src_lib_types_estimatorselection",
+      "src_lib_types_hotspot",
+      "src_lib_types_project",
+      "src_lib_types_projectcategory",
+      "src_lib_types_serviceitem"
+    ],
+    "1": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_esnext",
+      "ref_next_env_d_ts",
+      "ref_next_types_ts",
+      "ref_node_modules",
+      "ref_ts",
+      "ref_tsx",
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowjs",
+      "tsconfig_compileroptions_esmoduleinterop",
+      "tsconfig_compileroptions_incremental",
+      "tsconfig_compileroptions_isolatedmodules",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_paths",
+      "tsconfig_compileroptions_plugins",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_exclude",
+      "tsconfig_include"
+    ],
+    "2": [
+      "src_app_contact_page",
+      "src_app_contact_page_contactforminner",
+      "src_app_contact_page_contactpage",
+      "src_app_layout",
+      "src_app_layout_metadata",
+      "src_app_layout_rootlayout",
+      "src_components_interactive_cookieconsent",
+      "src_components_interactive_cookieconsent_cookieconsent",
+      "src_components_interactive_whatsappfloat",
+      "src_components_interactive_whatsappfloat_whatsappfloat",
+      "src_components_layout_footer",
+      "src_components_layout_footer_footer",
+      "src_components_layout_navbar",
+      "src_components_layout_navbar_nav_links",
+      "src_components_layout_navbar_navbar",
+      "src_components_layout_themeprovider",
+      "src_components_layout_themeprovider_theme",
+      "src_components_layout_themeprovider_themecontext",
+      "src_components_layout_themeprovider_themecontexttype",
+      "src_components_layout_themeprovider_themeprovider",
+      "src_components_layout_themeprovider_usetheme",
+      "src_components_layout_themetoggle",
+      "src_components_layout_themetoggle_themetoggle",
+      "src_data_studioconfig",
+      "src_data_studioconfig_studio_config"
+    ],
+    "3": [
+      "clsx",
+      "framer_motion",
+      "lucide_react",
+      "next",
+      "package",
+      "package_dependencies",
+      "package_dependencies_clsx",
+      "package_dependencies_framer_motion",
+      "package_dependencies_lucide_react",
+      "package_dependencies_next",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_tailwind_merge",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_start",
+      "package_version",
+      "react",
+      "react_dom",
+      "tailwind_merge"
+    ],
+    "4": [
+      "autoprefixer",
+      "eslint",
+      "eslint_config_next",
+      "package_devdependencies",
+      "package_devdependencies_autoprefixer",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_config_next",
+      "package_devdependencies_postcss",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "postcss",
+      "tailwindcss",
+      "types_node",
+      "types_react",
+      "types_react_dom",
+      "typescript"
+    ],
+    "5": [
+      "manage",
+      "manage_banner",
+      "manage_check_env",
+      "manage_cmd_build",
+      "manage_cmd_clean",
+      "manage_cmd_deploy",
+      "manage_cmd_dev",
+      "manage_cmd_lint",
+      "manage_cmd_restart",
+      "manage_cmd_setup",
+      "manage_cmd_start",
+      "manage_cmd_status",
+      "manage_cmd_stop",
+      "manage_log_error",
+      "manage_log_info",
+      "manage_log_success",
+      "manage_log_warn",
+      "manage_sh__entry",
+      "manage_show_menu"
+    ],
+    "6": [
+      "src_app_services_page",
+      "src_app_services_page_servicespage",
+      "src_app_services_page_workflow_steps",
+      "src_components_interactive_costestimator",
+      "src_components_interactive_costestimator_area_ranges",
+      "src_components_interactive_costestimator_costestimator",
+      "src_components_interactive_costestimator_finish_levels",
+      "src_components_interactive_costestimator_project_types"
+    ],
+    "7": [
+      "src_app_about_page",
+      "src_app_about_page_aboutpage",
+      "src_app_about_page_team_members",
+      "src_app_about_page_workflow_milestones"
+    ],
+    "8": [
+      "src_app_api_contact_route",
+      "src_app_api_contact_route_iprequests",
+      "src_app_api_contact_route_post"
+    ],
+    "9": [
+      "next_config",
+      "next_config_nextconfig"
+    ],
+    "10": [
+      "next_env_d",
+      "next_env_d_rationale_4"
+    ],
+    "11": [
+      "public_images_hero_main_hero_image",
+      "public_images_villa_malibu_villa_malibu"
+    ],
+    "12": [
+      "public_images_indian_courtyard_indian_courtyard",
+      "public_images_indian_hero_hero_image"
+    ],
+    "13": [
+      "public_images_loft_after_industrial_loft_interior",
+      "public_images_loft_before_unrenovated_industrial_loft"
+    ],
+    "14": [
+      "src_app_privacy_page",
+      "src_app_privacy_page_privacypage"
+    ],
+    "15": [
+      "src_app_terms_page",
+      "src_app_terms_page_termspage"
+    ],
+    "16": [
+      "src_app_testimonials_page",
+      "src_app_testimonials_page_testimonialsredirectpage"
+    ],
+    "17": [
+      "postcss_config"
+    ],
+    "18": [
+      "public_images_founders_founder_portrait"
+    ],
+    "19": [
+      "public_images_tower_seattle_aurora_tower"
+    ],
+    "20": [
+      "tailwind_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.10526315789473684,
+    "1": 0.07692307692307693,
+    "2": 0.12333333333333334,
+    "3": 0.08333333333333333,
+    "4": 0.10526315789473684,
+    "5": 0.4444444444444444,
+    "6": 0.2857142857142857,
+    "7": 0.5,
+    "8": 0.6666666666666666,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0,
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0,
+    "20": 1.0
+  },
+  "gods": [
+    {
+      "id": "manage_show_menu",
+      "label": "show_menu()",
+      "degree": 15
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 15
+    },
+    {
+      "id": "manage_sh__entry",
+      "label": "manage.sh script",
+      "degree": 13
+    },
+    {
+      "id": "manage_log_info",
+      "label": "log_info()",
+      "degree": 11
+    },
+    {
+      "id": "manage_check_env",
+      "label": "check_env()",
+      "degree": 9
+    },
+    {
+      "id": "manage_cmd_deploy",
+      "label": "cmd_deploy()",
+      "degree": 9
+    },
+    {
+      "id": "src_data_projectsdata_projects_data",
+      "label": "PROJECTS_DATA",
+      "degree": 9
+    },
+    {
+      "id": "manage_cmd_stop",
+      "label": "cmd_stop()",
+      "degree": 8
+    },
+    {
+      "id": "manage_cmd_build",
+      "label": "cmd_build()",
+      "degree": 8
+    },
+    {
+      "id": "manage_cmd_start",
+      "label": "cmd_start()",
+      "degree": 8
+    }
+  ],
+  "surprises": [
+    {
+      "source": "Luxury Coastal Residence Hero Image",
+      "target": "Malibu Cliffside Villa",
+      "source_files": [
+        "public/images/hero_main.png",
+        "public/images/villa_malibu.png"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "Indian Courtyard",
+      "target": "Contemporary Indian Courtyard Residence",
+      "source_files": [
+        "public/images/indian_courtyard.png",
+        "public/images/indian_hero.png"
+      ],
+      "confidence": "INFERRED",
+      "relation": "semantically_similar_to",
+      "why": "inferred connection - not explicitly stated in source; semantically similar concepts with no structural link"
+    },
+    {
+      "source": "GET()",
+      "target": "PROJECTS_DATA",
+      "source_files": [
+        "src/app/api/projects/[slug]/route.ts",
+        "src/data/projectsData.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `GET()` unexpectedly reaches hub `PROJECTS_DATA`"
+    },
+    {
+      "source": "ProjectDetailPage()",
+      "target": "PROJECTS_DATA",
+      "source_files": [
+        "src/app/portfolio/[slug]/page.tsx",
+        "src/data/projectsData.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "peripheral node `ProjectDetailPage()` unexpectedly reaches hub `PROJECTS_DATA`"
+    },
+    {
+      "source": "Unrenovated Industrial Loft",
+      "target": "Renovated Industrial Loft",
+      "source_files": [
+        "public/images/loft_before.png",
+        "public/images/loft_after.png"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `Community 4` to `Community 3`?",
+      "why": "High betweenness centrality (0.033) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `nextConfig`, `name`, `version` to the rest of the system?",
+      "why": "70 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.12333333333333334 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 3` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 4` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected."
+    }
+  ]
+}

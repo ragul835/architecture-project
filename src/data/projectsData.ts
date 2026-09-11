@@ -1,0 +1,163 @@
+import { Project } from '@/lib/types';
+
+export const PROJECTS_DATA: Project[] = [
+  {
+    id: 'proj-1',
+    slug: 'konkan-cliffside-residence',
+    title: 'The Konkan Cliffside Villa',
+    subtitle: 'Cantilevered luxury oceanfront villa in Alibaug combining exposed RCC concrete with terracotta jaali screens, Burma teak, and Kota stone.',
+    category: 'Residential',
+    location: 'Alibaug, Maharashtra',
+    year: '2025',
+    areaSqFt: '12,500 sq ft',
+    timeline: '18 Months',
+    client: 'Private Coastal Residence',
+    materials: ['Board-formed RCC Concrete', 'Terracotta Jaali Screen', 'Kota Blue Stone', 'High-Performance Low-E Glass'],
+    coverImage: '/images/indian_hero.png',
+    galleryImages: [
+      '/images/indian_hero.png',
+      '/images/indian_courtyard.png',
+      '/images/hero_main.png',
+      '/images/villa_malibu.png',
+    ],
+    description: 'Situated on the coastal slopes of Alibaug, the Konkan Cliffside Villa redefines tropical Indian luxury living. Designed to harvest monsoon rainwater and optimize sea breeze cross-ventilation through geometric terracotta jaali screens, the villa features a post-tensioned cantilever deck projecting over the coastline.',
+    concept: 'Harmonizing heavy tactile concrete massing with tropical landscape geometry and passive solar shading tuned to the Konkan monsoon climate.',
+    challenge: 'Navigating CRZ (Coastal Regulation Zone) clearances and heavy monsoon rainfall weatherproofing on a steep rock incline.',
+    solution: 'Designed subterranean pile foundations anchored 20 meters into basalt bedrock, paired with concealed drainage troughs and water-repellent concrete additives.',
+    featured: true,
+    hotspots: [
+      { id: 'h1', title: 'Terracotta Jaali Screen', description: 'Handcrafted terracotta lattice louvers providing privacy and passive cooling.', x: 80, y: 35 },
+      { id: 'h2', title: 'Tropical Courtyard Pool', description: 'Reflecting pool framed by native Konkan flora and Kota stone pavers.', x: 50, y: 75 },
+      { id: 'h3', title: 'Cantilevered Ocean Deck', description: 'Post-tensioned concrete deck extending toward the Arabian Sea coastline.', x: 35, y: 50 }
+    ]
+  },
+  {
+    id: 'proj-2',
+    slug: 'angan-courtyard-residence',
+    title: 'The Angan Courtyard Villa',
+    subtitle: 'A contemporary Indian courtyard home featuring an open-to-sky lotus pond, Chettinad teak pillars, and Vastu-aligned spatial geometry.',
+    category: 'Residential',
+    location: 'Indiranagar, Bengaluru',
+    year: '2025',
+    areaSqFt: '8,800 sq ft',
+    timeline: '14 Months',
+    client: 'Private Urban Residence',
+    materials: ['Reclaimed Teakwood Pillars', 'Polished Kota Stone', 'Jaisalmer Yellow Marble', 'Lime Plaster Walls'],
+    coverImage: '/images/indian_courtyard.png',
+    galleryImages: [
+      '/images/indian_courtyard.png',
+      '/images/indian_hero.png',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop',
+    ],
+    description: 'Designed around a central open-to-sky courtyard (Angan), this Bengaluru villa embodies traditional Indian spatial wisdom. The central water body cools incoming air currents, while deep verandahs (sit-outs) with carved teak pillars create sheltered transition zones.',
+    concept: 'Vastu Shastra spatial alignment: placing water elements in the Ishanya (Northeast) quadrant and master suites in the Nairutya (Southwest).',
+    challenge: 'Maintaining thermal comfort in high-density urban Bengaluru while maximizing natural light and rain drainage.',
+    solution: 'Engineered a automated glass skylight roof system over the courtyard that closes during heavy monsoons while allowing continuous airflow.',
+    featured: true,
+    hotspots: [
+      { id: 'h4', title: 'Lotus Reflecting Pond', description: 'Central water body harvesting rainwater and driving stack ventilation.', x: 50, y: 70 },
+      { id: 'h5', title: 'Chettinad Teak Verandah', description: 'Hand-carved wooden pillars supporting broad shading eaves.', x: 25, y: 45 }
+    ]
+  },
+  {
+    id: 'proj-3',
+    slug: 'rajwada-heritage-haveli',
+    title: 'Rajwada Haveli Restoration',
+    subtitle: 'Adaptive conservation of an 18th-century sandstone Haveli into a light-filled contemporary estate combining red Agra stone arches with modern glass.',
+    category: 'Renovation',
+    location: 'Udaipur, Rajasthan',
+    year: '2024',
+    areaSqFt: '15,000 sq ft',
+    timeline: '20 Months',
+    client: 'Heritage Preservation Scope',
+    materials: ['Restored Agra Red Sandstone', 'Jaisalmer Yellow Marble', 'Lime Mortar', 'High-Performance Insulated Glass'],
+    coverImage: '/images/loft_after.png',
+    galleryImages: [
+      '/images/loft_after.png',
+      '/images/loft_before.png',
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600&auto=format&fit=crop',
+    ],
+    beforeAfter: {
+      beforeImage: '/images/loft_before.png',
+      afterImage: '/images/loft_after.png',
+      beforeLabel: 'Distressed Heritage Structure (2023)',
+      afterLabel: 'Restored Rajwada Haveli (2024)'
+    },
+    description: 'Rajwada Haveli represents the pinnacle of Indian architectural restoration. The structure preserves intricate stone jharokhas and lime plaster finishes while incorporating modern structural steel seismic reinforcement.',
+    concept: 'Architectural conservation: breathing new life into historic Rajasthani stonework through breathable traditional lime techniques.',
+    challenge: 'Strengthening centuries-old unreinforced stone masonry to meet modern seismic standards without altering the heritage facade.',
+    solution: 'Inserted a hidden self-supporting interior steel frame and micro-pile foundation, stabilizing historic stone arches.',
+    featured: true,
+    hotspots: [
+      { id: 'h6', title: 'Carved Stone Jharokha', description: 'Restored Rajasthani balcony with hand-carved lattice stonework.', x: 30, y: 40 }
+    ]
+  },
+  {
+    id: 'proj-4',
+    slug: 'deccan-heights-bkc',
+    title: 'Deccan Heights Commercial Hub',
+    subtitle: 'A 38-story biophilic corporate skyscraper in BKC featuring vertical gardens, IGBC Platinum net-zero targets, and kinetic jaali facades.',
+    category: 'Commercial',
+    location: 'Bandra-Kurla Complex (BKC), Mumbai',
+    year: '2024',
+    areaSqFt: '450,000 sq ft',
+    timeline: '36 Months',
+    client: 'Commercial Development Scope',
+    materials: ['Recycled Structural Steel', 'Building-Integrated Photovoltaic Glass', 'Cross-Laminated Timber (CLT)', 'Vertical Biophilic Wall'],
+    coverImage: '/images/tower_seattle.png',
+    galleryImages: [
+      '/images/tower_seattle.png',
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop',
+    ],
+    description: 'Deccan Heights Commercial Hub is Mumbai’s premier sustainable urban office tower. Designed around a multi-tier atrium, the building filters city air through 10,000 indoor air-purifying plants while harvesting rooftop solar energy.',
+    concept: 'Biophilic high-rise urbanism engineered to combat urban heat island effect and minimize HVAC energy consumption in tropical Mumbai.',
+    challenge: 'Achieving IGBC Platinum certification in a high-density financial center with strict FSI restrictions.',
+    solution: 'Engineered a double-skin kinetic glass facade that automatically rotates to block direct afternoon solar heat gain.',
+    featured: false
+  },
+  {
+    id: 'proj-5',
+    slug: 'malabar-hillside-sanctuary',
+    title: 'Malabar Eco Sanctuary',
+    subtitle: 'A tropical eco-residence tucked into spice plantation slopes in Wayanad, Kerala, featuring sloping tiled roofs and natural ventilation.',
+    category: 'Residential',
+    location: 'Wayanad, Kerala',
+    year: '2024',
+    areaSqFt: '7,500 sq ft',
+    timeline: '12 Months',
+    client: 'Private Plantation Estate',
+    materials: ['Clay Roof Tiles', 'Laterite Stone Masonry', 'Teakwood Joinery', 'Granite Flooring'],
+    coverImage: '/images/hero_main.png',
+    galleryImages: [
+      '/images/hero_main.png',
+      '/images/indian_courtyard.png',
+    ],
+    description: 'Malabar Eco Sanctuary draws inspiration from traditional Kerala Nalukettu architecture. Sweeping roof overhangs protect against heavy monsoon downpours, while breathable laterite stone walls maintain cool indoor temperatures year-round.',
+    concept: 'Nalukettu geometry: four wings opening into a central rainwater harvesting quadrangle.',
+    challenge: 'Constructing on steep monsoon-prone plantation slopes with minimal disturbance to local flora.',
+    solution: 'Built the sanctuary on raised stone stilts, preserving root systems and allowing natural hillside water runoff.',
+    featured: false
+  },
+  {
+    id: 'proj-6',
+    slug: 'vanguard-goa-atelier',
+    title: 'Vanguard Coastal Atelier',
+    subtitle: 'Minimalist coastal interior design featuring custom Italian travertine, brass jaali joinery, and warm ambient lighting scenes.',
+    category: 'Interior',
+    location: 'Assagao, Goa',
+    year: '2025',
+    areaSqFt: '3,800 sq ft',
+    timeline: '8 Months',
+    client: 'Bespoke Interior Commission',
+    materials: ['Navona Travertine', 'Brushed Brass Jaali', 'Linen Upholstery', 'Micro-Cement Plaster'],
+    coverImage: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1600&auto=format&fit=crop',
+    ],
+    description: 'Vanguard Atelier showcases AURA’s interior architecture practice in Goa. The villa transforms a Portuguese-heritage structure into a calm, gallery-like residence with bespoke furniture sculptures and brass jaali partitions.',
+    concept: 'Tactile minimalism: combining soft curved micro-cement plaster walls with crisp travertine partitions and brass screens.',
+    challenge: 'Integrating smart home automation and concealed HVAC in high-humidity coastal climates.',
+    solution: 'Engineered shadow-gap ceiling perimeter slots and micro-perforated acoustic plaster surfaces.',
+    featured: false
+  }
+];
