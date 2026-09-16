@@ -4,12 +4,6 @@ const nextConfig = {
   // manage.sh sets this only for development; normal builds remain in .next.
   distDir: process.env.NEXT_DIST_DIR || '.next',
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-    ],
     formats: ['image/avif', 'image/webp'],
   },
   reactStrictMode: true,

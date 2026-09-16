@@ -1,57 +1,42 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { WhatsAppFloat } from '@/components/interactive/WhatsAppFloat';
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+import { SITE_URL, STUDIO_CONFIG } from '@/data/studioConfig';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: 'AURA Architecture & Urban Studio | Luxury Residential & Commercial Architects',
-  description:
-    'Award-winning architecture studio specializing in high-end luxury villas, sustainable commercial skyscrapers, adaptive renovation lofts, and biophilic interior spaces.',
-  keywords: [
-    'Architecture Studio',
-    'Luxury Villas',
-    'Commercial Skyscraper',
-    'Adaptive Reuse',
-    'Interior Architecture',
-    'AIA Architects',
-    'Sustainable Building',
-  ],
-  authors: [{ name: 'AURA Architecture Studio' }],
+  metadataBase: new URL(SITE_URL),
+  title: { default: 'AURA | Architecture, Interior & Exterior Design in India', template: '%s | AURA' },
+  description: STUDIO_CONFIG.description,
+  applicationName: STUDIO_CONFIG.name,
   alternates: { canonical: '/' },
+  openGraph: { type: 'website', locale: 'en_IN', siteName: STUDIO_CONFIG.name, title: 'Architecture, interiors, and exteriors—designed as one property', description: STUDIO_CONFIG.description, images: [{ url: '/images/indian_hero.png', width: 1200, height: 630, alt: 'AURA concept visualisation of a contemporary Indian home' }] },
+  twitter: { card: 'summary_large_image', title: 'AURA Architecture Studio', description: STUDIO_CONFIG.description, images: ['/images/indian_hero.png'] },
   robots: { index: true, follow: true },
-  openGraph: {
-    title: 'AURA Architecture & Urban Studio',
-    description: 'Award-winning architecture studio crafting sustainable luxury residences and commercial landmarks.',
-    type: 'website',
-    images: ['/images/hero_main.png'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'AURA Architecture & Urban Studio',
-    description: 'Sustainable luxury residences and commercial landmarks.',
-    images: ['/images/hero_main.png'],
-  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#242522' };
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const professionalService = {
+    '@context': 'https://schema.org', '@type': 'ProfessionalService', name: STUDIO_CONFIG.name,
+    url: SITE_URL, description: STUDIO_CONFIG.description,
+    areaServed: { '@type': 'Country', name: 'India' },
+    telephone: STUDIO_CONFIG.contact.phone, email: STUDIO_CONFIG.contact.email,
+  };
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
-      <body className="min-h-screen flex flex-col antialiased selection:bg-amber-500 selection:text-neutral-950">
+    <html lang="en" suppressHydrationWarning>
+      <body className="min-h-screen pb-20 antialiased sm:pb-0">
         <ThemeProvider>
+          <a href="#main-content" className="fixed left-3 top-3 z-[100] -translate-y-24 bg-[var(--ink)] px-4 py-3 text-sm text-[var(--canvas)] focus:translate-y-0">Skip to content</a>
           <Navbar />
-          <main className="flex-1 pt-20">{children}</main>
+          <main id="main-content" className="min-h-screen pt-[72px]">{children}</main>
           <Footer />
           <WhatsAppFloat />
         </ThemeProvider>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalService).replace(/</g, '\\u003c') }} />
       </body>
     </html>
   );

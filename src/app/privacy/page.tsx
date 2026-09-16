@@ -1,7 +1,10 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import { ShieldCheck, ArrowLeft } from 'lucide-react';
 import { STUDIO_CONFIG } from '@/data/studioConfig';
+
+export const metadata: Metadata = { title: 'Privacy Policy', description: 'How information submitted through the AURA project inquiry form is handled.', alternates: { canonical: '/privacy' } };
 
 export default function PrivacyPage() {
   return (

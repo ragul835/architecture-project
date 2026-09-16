@@ -1,16 +1,17 @@
-export type ProjectCategory = 'All' | 'Residential' | 'Commercial' | 'Interior' | 'Renovation';
+export type CoreService = 'architecture' | 'interior-design' | 'exterior-design';
+export type ProjectCategory = 'Architecture' | 'Interior' | 'Exterior' | 'Renovation' | 'Commercial';
+export type ProjectStatus = 'completed' | 'ongoing' | 'concept' | 'confidential';
+export type ProjectFocus = 'interior' | 'exterior' | 'both';
 
-export interface Hotspot {
-  id: string;
-  title: string;
-  description: string;
-  x: number; // percentage from left
-  y: number; // percentage from top
+export interface ProjectImage {
+  src: string;
+  alt: string;
+  classification: 'concept-visualisation' | 'client-photograph' | 'placeholder';
 }
 
 export interface BeforeAfterData {
-  beforeImage: string;
-  afterImage: string;
+  beforeImage: ProjectImage;
+  afterImage: ProjectImage;
   beforeLabel?: string;
   afterLabel?: string;
 }
@@ -19,50 +20,63 @@ export interface Project {
   id: string;
   slug: string;
   title: string;
-  subtitle: string;
-  category: ProjectCategory;
-  location: string;
-  year: string;
-  areaSqFt: string;
-  timeline: string;
-  client: string;
+  summary: string;
+  categories: ProjectCategory[];
+  status: ProjectStatus;
+  city: string;
+  state: string;
+  locationVerified: boolean;
+  propertyType: string;
+  scope: string[];
+  focus: ProjectFocus;
+  builtUpAreaSqFt?: number;
+  plotAreaSqFt?: number;
+  completionYear?: number;
+  timeline?: string;
+  designStyle: string;
   materials: string[];
-  coverImage: string;
-  galleryImages: string[];
-  description: string;
-  concept: string;
+  coverImage: ProjectImage;
+  galleryImages: ProjectImage[];
+  brief: string;
   challenge: string;
   solution: string;
   featured: boolean;
   beforeAfter?: BeforeAfterData;
-  hotspots?: Hotspot[];
+  seo: { title: string; description: string };
 }
 
 export interface ServiceItem {
-  id: string;
+  id: CoreService;
   title: string;
-  category: string;
-  shortDesc: string;
-  fullDesc: string;
-  iconName: string;
+  eyebrow: string;
+  shortDescription: string;
+  whoFor: string;
+  problems: string[];
+  scope: string[];
   deliverables: string[];
-  features: string[];
-  image: string;
-}
-
-export interface ContactFormData {
-  fullName: string;
-  email: string;
-  phone: string;
-  projectType: string;
-  estimatedBudget: string;
+  process: string[];
+  exclusions: string[];
   timeline: string;
-  message: string;
+  image: ProjectImage;
+  faqs: Array<{ question: string; answer: string }>;
 }
 
-export interface EstimatorSelection {
-  serviceType: string;
-  sizeSqFt: string;
-  finishLevel: string;
-  additionalServices: string[];
+export interface InquiryPayload {
+  fullName: string;
+  phone: string;
+  email: string;
+  preferredContact: 'phone' | 'email' | 'whatsapp';
+  city: string;
+  state: string;
+  pinCode: string;
+  propertyType: string;
+  requiredService: string;
+  projectStage: 'new-construction' | 'renovation';
+  area: string;
+  budgetRange: string;
+  desiredStartDate: string;
+  message: string;
+  whatsappConsent: boolean;
+  privacyConsent: boolean;
+  website: string;
 }

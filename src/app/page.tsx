@@ -1,261 +1,46 @@
-'use client';
-
-import React, { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import { PROJECTS_DATA } from '@/data/projectsData';
+import { ArrowRight, Check, MessageCircle } from 'lucide-react';
 import { SERVICES_DATA } from '@/data/servicesData';
+import { PROJECTS_DATA } from '@/data/projectsData';
+import { STUDIO_CONFIG, whatsappUrl } from '@/data/studioConfig';
 import { ProjectCard } from '@/components/portfolio/ProjectCard';
-import { BeforeAfterSlider } from '@/components/interactive/BeforeAfterSlider';
-import { LightboxModal } from '@/components/interactive/LightboxModal';
-import { ArrowUpRight, ArrowRight, Compass, Sparkles, ChevronRight, ShieldCheck, Sun, Layers } from 'lucide-react';
+
+const process = ['Consultation', 'Site study & brief', 'Concept design', '3D visualisation', 'Technical drawings', 'Material selection', 'Execution coordination', 'Handover'];
+const approach = [
+  ['Climate before style', 'Orientation, shade, cross-ventilation, glare, and rainfall are studied for the project’s actual regional climate.'],
+  ['Materials that age well', 'Kota stone, laterite, terracotta, Indian marble, lime plaster, screens, and exterior finishes are selected only where suitable.'],
+  ['One coordinated property', 'Architecture, interiors, and exteriors share one spatial, material, lighting, and services direction.'],
+  ['Choices made visible', 'Clear stages, documented decisions, and 3D views reduce assumptions before work reaches site.'],
+];
+const faqs = [
+  ['Where does the studio work?', STUDIO_CONFIG.serviceArea.verified ? STUDIO_CONFIG.serviceArea.display : 'The studio works in India. The home city, travel radius, and site-visit availability must be confirmed during the first call.'],
+  ['Do you design both interiors and exteriors?', 'Yes. Architecture, full-home interiors, and exterior elevation or facade design can be commissioned separately or coordinated as one complete-property scope.'],
+  ['How are design fees calculated?', 'Fees depend on scope, area, project stage, location, deliverables, and site involvement. The online estimator is an editable demonstration range—not a quotation.'],
+  ['Can you work remotely?', 'Remote consultation is available for suitable design stages. Surveys, approvals, execution, and site reviews may require verified local support.'],
+  ['Do you offer turnkey execution?', 'Turnkey interior or construction execution is not presented as a standard service until the studio confirms availability for the project location.'],
+  ['Can you accommodate Vastu?', 'Yes, as an optional client preference balanced with climate, function, structure, access, and local regulations.'],
+];
 
 export default function HomePage() {
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
-  const featuredProjects = PROJECTS_DATA.filter((p) => p.featured);
-  const renovationProject = PROJECTS_DATA.find((p) => p.beforeAfter);
-
-  const galleryList = featuredProjects.map((p) => p.coverImage);
-
-  return (
-    <div className="space-y-24 pb-20">
-      {/* 1. CINEMATIC HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden border-b border-neutral-200 dark:border-neutral-800 -mt-20 pt-20">
-        {/* Hero Background Image with Gradient Mask */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero_main.png"
-            alt="AURA Architecture Indian Residence"
-            className="w-full h-full object-cover object-center scale-105 animate-pulse-slow"
-            style={{ animationDuration: '20s' }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/95 via-neutral-950/75 to-neutral-950/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-neutral-950/50" />
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-white">
-          <div className="max-w-3xl space-y-6">
-            
-            {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/40 backdrop-blur-md text-amber-400 text-xs font-semibold uppercase tracking-widest animate-fade-in">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Full-Spectrum Architectural Practice</span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-neutral-100">
-              Designing <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600">Sanctuaries</span> of Light & Structure.
-            </h1>
-
-            {/* Subtitle */}
-            <p className="text-base sm:text-xl text-neutral-300 font-light leading-relaxed max-w-2xl">
-              AURA creates bespoke luxury villas, commercial towers, and adaptive interior spaces across India designed for tropical climate harmony, passive thermal comfort, and timeless material beauty.
-            </p>
-
-            {/* CTA Group */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
-              <Link
-                href="/portfolio"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-amber-500 hover:bg-amber-600 text-neutral-950 font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-xl hover:scale-105"
-              >
-                View Portfolio Showcase
-                <ArrowUpRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/services#estimator"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-neutral-900/80 border border-neutral-700 hover:border-amber-400 text-white font-semibold text-xs uppercase tracking-widest backdrop-blur-md transition-all duration-300 hover:bg-neutral-800"
-              >
-                Cost Estimator (INR)
-                <ArrowRight className="w-4 h-4 text-amber-400" />
-              </Link>
-            </div>
-
-            {/* Core Practice Pillars */}
-            <div className="pt-10 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-neutral-800/80">
-              <div className="space-y-1">
-                <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Architectural Design</div>
-                <div className="text-xs text-neutral-400">Bespoke Villas & Residential Estates</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Commercial & Civic</div>
-                <div className="text-xs text-neutral-400">Sustainable High-Rises & Landmarks</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Adaptive Restoration</div>
-                <div className="text-xs text-neutral-400">Heritage Conservation & Structural Reuse</div>
-              </div>
-              <div className="space-y-1">
-                <div className="text-xs font-bold uppercase tracking-wider text-amber-400">Interior Architecture</div>
-                <div className="text-xs text-neutral-400">Custom Stone Joinery & Spatial Styling</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-      {/* 2. PHILOSOPHY & CRAFT SECTION (Clean Text & Pillars Grid, No Image) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-widest">
-            <Compass className="w-4 h-4" />
-            Studio Philosophy
-          </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-neutral-900 dark:text-neutral-100 leading-tight">
-            Architecture rooted in Indian climate, crafts, and spatial geometry.
-          </h2>
-          <p className="text-neutral-600 dark:text-neutral-400 text-base sm:text-lg leading-relaxed">
-            We believe architecture should respond organically to local sun vectors, monsoon rain patterns, and natural materials like Kota stone, Jaisalmer marble, and Indian teakwood.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 space-y-3 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <h4 className="font-serif text-xl font-bold text-neutral-900 dark:text-neutral-100">Structural Clarity</h4>
-            <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">Authentic expression of raw board-formed concrete, timber, and glass without superficial ornament.</p>
-          </div>
-
-          <div className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 space-y-3 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
-              <Sun className="w-5 h-5" />
-            </div>
-            <h4 className="font-serif text-xl font-bold text-neutral-900 dark:text-neutral-100">Passive Thermal Design</h4>
-            <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">Dissolving indoor heat with breeze corridors, shaded jaali screens, and rainwater harvesting.</p>
-          </div>
-
-          <div className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 space-y-3 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
-              <Layers className="w-5 h-5" />
-            </div>
-            <h4 className="font-serif text-xl font-bold text-neutral-900 dark:text-neutral-100">Vastu Geometry</h4>
-            <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">Harmonizing spatial orientation, central light wells (Angan), and natural water elements.</p>
-          </div>
-        </div>
-
-        <div>
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300"
-          >
-            Learn About Our Studio Practice
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
-
-
-      {/* 3. FEATURED PROJECTS SHOWCASE */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-6">
-          <div>
-            <span className="text-xs uppercase tracking-widest text-amber-600 dark:text-amber-400 font-bold block mb-1">
-              Curated Portfolio
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-neutral-100">
-              Featured Architectural Work in India
-            </h2>
-          </div>
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-amber-500 text-xs font-semibold uppercase tracking-wider transition-colors"
-          >
-            Explore All Projects ({PROJECTS_DATA.length})
-            <ChevronRight className="w-4 h-4 text-amber-500" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuredProjects.map((project, idx) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onOpenLightbox={() => setLightboxIndex(idx)}
-            />
-          ))}
-        </div>
-      </section>
-
-
-      {/* 4. INTERACTIVE RENOVATION BEFORE / AFTER SLIDER */}
-      {renovationProject?.beforeAfter && (
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs uppercase tracking-widest text-amber-600 dark:text-amber-400 font-bold">
-              Interactive Transformation
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-neutral-100">
-              Before & After Restoration Showcase
-            </h2>
-            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
-              Experience how our adaptive reuse practice transforms heritage structures into modern architectural sanctuaries.
-            </p>
-          </div>
-
-          <BeforeAfterSlider data={renovationProject.beforeAfter} />
-        </section>
-      )}
-
-
-      {/* 5. SERVICES OVERVIEW */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs uppercase tracking-widest text-amber-600 dark:text-amber-400 font-bold">
-            Full-Spectrum Practice
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-neutral-100">
-            Services We Offer
-          </h2>
-          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
-            From site feasibility to municipal approvals and construction supervision.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES_DATA.slice(0, 6).map((service) => (
-            <div
-              key={service.id}
-              className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 hover:border-amber-500 transition-all duration-300 space-y-4 flex flex-col justify-between shadow-sm"
-            >
-              <div className="space-y-3">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full">
-                  {service.category}
-                </span>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 dark:text-neutral-100">
-                  {service.title}
-                </h3>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  {service.shortDesc}
-                </p>
-              </div>
-
-              <div className="pt-2">
-                <Link
-                  href="/services"
-                  className="inline-flex items-center gap-1 text-xs font-bold text-amber-600 dark:text-amber-400 hover:translate-x-1 transition-transform"
-                >
-                  View Service Deliverables
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Lightbox Component */}
-      <LightboxModal
-        images={galleryList}
-        currentIndex={lightboxIndex ?? 0}
-        isOpen={lightboxIndex !== null}
-        onClose={() => setLightboxIndex(null)}
-        onNavigate={(idx) => setLightboxIndex(idx)}
-        title="Featured Architectural Portfolio"
-      />
-    </div>
-  );
+  const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) };
+  return <>
+    <section className="relative min-h-[calc(100svh-72px)] overflow-hidden bg-[var(--charcoal)] text-[#f8f4ec]">
+      <Image src="/images/indian_hero.png" alt="Concept visualisation of a contemporary Indian house with deep shade and terracotta screens" fill priority sizes="100vw" className="object-cover object-center opacity-55" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/10" />
+      <div className="page-shell relative flex min-h-[calc(100svh-72px)] items-end pb-32 pt-12 sm:items-center sm:py-20">
+        <div className="max-w-4xl"><p className="eyebrow !text-[#e4b481]">Architecture studio in India</p><h1 className="display-title mt-5 max-w-4xl">Architecture, interiors, and exteriors—designed as one property.</h1><p className="mt-6 max-w-2xl text-base leading-7 text-stone-200 sm:text-xl sm:leading-8">Clear planning, material-aware interiors, and climate-responsive facades for new homes and thoughtful renovations.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link href="/contact" className="focus-ring flex min-h-12 items-center justify-center gap-2 bg-[var(--clay)] px-6 font-bold text-white">Book a design consultation <ArrowRight size={18} /></Link><Link href="/portfolio" className="focus-ring flex min-h-12 items-center justify-center border border-white/50 px-6 font-bold">Explore our projects</Link><a href={whatsappUrl('Hello AURA, I would like to book a design consultation.')} className="focus-ring flex min-h-12 items-center justify-center gap-2 border border-white/50 px-5 font-bold sm:hidden"><MessageCircle size={18} /> WhatsApp</a></div><p className="mt-5 text-xs text-stone-300">Hero image: concept visualisation, not completed client work.</p></div>
+      </div>
+    </section>
+    <section aria-label="Studio facts" className="border-b bg-[var(--surface)]"><div className="page-shell grid grid-cols-2 divide-x py-6 sm:grid-cols-4"><div className="px-3 first:pl-0"><b className="block text-sm">Service area</b><span className="text-xs text-[var(--muted)]">India · exact radius on enquiry</span></div><div className="px-3"><b className="block text-sm">Project types</b><span className="text-xs text-[var(--muted)]">New homes & renovations</span></div><div className="mt-5 border-t px-3 pt-5 sm:mt-0 sm:border-t-0 sm:pt-0"><b className="block text-sm">Consultations</b><span className="text-xs text-[var(--muted)]">Remote & site-based</span></div><div className="mt-5 border-t px-3 pt-5 sm:mt-0 sm:border-t-0 sm:pt-0"><b className="block text-sm">Credentials</b><span className="text-xs text-[var(--muted)]">Verification pending</span></div></div></section>
+    <section className="section-space"><div className="page-shell"><p className="eyebrow">Three connected capabilities</p><h2 className="section-title mt-4 max-w-3xl">Start with one room, one facade, or the whole property.</h2><div className="mt-10 grid gap-5 lg:grid-cols-3">{SERVICES_DATA.map((service, index) => <article key={service.id} className="surface-card p-6 sm:p-8"><span className="font-display text-5xl text-[var(--sand)]">0{index + 1}</span><p className="eyebrow mt-6">{service.eyebrow}</p><h3 className="mt-2 font-display text-3xl">{service.title}</h3><p className="mt-4 leading-7 text-[var(--muted)]">{service.shortDescription}</p><Link href={`/services/${service.id}`} className="focus-ring mt-6 inline-flex min-h-11 items-center gap-2 font-bold text-[var(--clay)]">Explore {service.title.toLowerCase()} <ArrowRight size={17} /></Link></article>)}</div></div></section>
+    <section className="section-space border-y bg-[var(--surface)]"><div className="page-shell"><div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Selected studies</p><h2 className="section-title mt-4">Work shown honestly.</h2><p className="body-copy mt-4 max-w-2xl">Until verified project photography and details are provided, the portfolio is clearly labelled as concept visualisation—not completed client work.</p></div><Link href="/portfolio" className="focus-ring flex min-h-11 items-center gap-2 font-bold">View portfolio <ArrowRight size={17} /></Link></div><div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{PROJECTS_DATA.filter((project) => project.featured).map((project, index) => <ProjectCard key={project.id} project={project} priority={index === 0} />)}</div></div></section>
+    <section className="section-space"><div className="page-shell grid gap-8 lg:grid-cols-2"><div className="relative min-h-[420px] overflow-hidden"><Image src="/images/indian_courtyard.png" alt="Concept visualisation of a material-led interior with a planted courtyard" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /><span className="absolute bottom-3 left-3 bg-[var(--charcoal)] px-3 py-2 text-xs text-white">Interior concept visualisation</span></div><div className="flex flex-col justify-center"><p className="eyebrow">Inside and outside, together</p><h2 className="section-title mt-4">The front elevation should belong to the rooms behind it.</h2><p className="body-copy mt-5">Window proportions affect furniture planning. Balconies affect shade. Exterior lighting affects the entrance sequence. Treating interior and exterior design together produces fewer compromises and a calmer material story.</p><div className="mt-7 grid gap-3 sm:grid-cols-2">{['Room planning aligned with openings', 'Facade materials carried into thresholds', 'Lighting coordinated across edges', 'Weathering and maintenance considered early'].map((item) => <p key={item} className="flex gap-2 text-sm"><Check className="mt-0.5 shrink-0 text-[var(--clay)]" size={17} />{item}</p>)}</div><div className="mt-7 flex gap-5"><Link href="/services/interior-design" className="font-bold text-[var(--clay)]">Interior design →</Link><Link href="/services/exterior-design" className="font-bold text-[var(--clay)]">Exterior design →</Link></div></div></div></section>
+    <section className="section-space bg-[var(--moss)] text-white"><div className="page-shell"><p className="eyebrow !text-[#f1d0a5]">Indian design approach</p><h2 className="section-title mt-4 max-w-3xl">Regional climate changes the answer.</h2><p className="mt-5 max-w-3xl text-lg leading-8 text-white/80">Coastal, warm-humid, hot-dry, composite, and temperate locations need different responses. The design starts with the site—not a fixed visual formula.</p><div className="mt-10 grid gap-px bg-white/20 sm:grid-cols-2 lg:grid-cols-4">{approach.map(([title, text]) => <div key={title} className="bg-[var(--moss)] p-6"><h3 className="font-display text-2xl">{title}</h3><p className="mt-3 text-sm leading-6 text-white/75">{text}</p></div>)}</div></div></section>
+    <section className="section-space"><div className="page-shell"><p className="eyebrow">A visible process</p><h2 className="section-title mt-4">From first conversation to handover.</h2><ol className="mt-10 grid gap-0 border-l sm:grid-cols-2 sm:border-l-0 lg:grid-cols-4">{process.map((step, index) => <li key={step} className="border-b p-5 sm:border-l"><span className="text-xs font-bold text-[var(--clay)]">{String(index + 1).padStart(2, '0')}</span><h3 className="mt-3 font-display text-xl">{step}</h3></li>)}</ol><Link href="/process" className="focus-ring mt-7 inline-flex min-h-11 items-center gap-2 font-bold text-[var(--clay)]">See deliverables at every stage <ArrowRight size={17} /></Link></div></section>
+    <section className="section-space border-y bg-[var(--surface)]"><div className="page-shell grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-center"><div><p className="eyebrow">Early budget planning</p><h2 className="section-title mt-4">Build a scope before discussing a fee.</h2><p className="body-copy mt-5">Choose architecture, interiors, exteriors, or a complete-property scope. Adjust area, project stage, city tier, finish level, and site involvement. All current rates are clearly marked as demonstration defaults.</p></div><div className="surface-card p-6"><p className="text-xs font-bold uppercase tracking-wider text-[var(--clay)]">Not a quotation</p><p className="mt-3 font-display text-3xl">Indicative range in lakhs or crores</p><p className="mt-3 text-sm leading-6 text-[var(--muted)]">Includes assumptions, exclusions, timeline guidance, and a prefilled consultation handoff.</p><Link href="/cost-estimator" className="focus-ring mt-6 flex min-h-12 items-center justify-center bg-[var(--charcoal)] px-5 font-bold text-[#f4f0e8]">Open cost estimator</Link></div></div></section>
+    <section className="section-space"><div className="page-shell grid gap-10 lg:grid-cols-[.7fr_1.3fr]"><div><p className="eyebrow">Common questions</p><h2 className="section-title mt-4">Useful answers before the first call.</h2></div><div className="divide-y border-y">{faqs.map(([q, a]) => <details key={q} className="group py-5"><summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-bold">{q}<span aria-hidden="true" className="text-2xl text-[var(--clay)]">+</span></summary><p className="max-w-3xl pb-2 pr-10 text-sm leading-7 text-[var(--muted)]">{a}</p></details>)}</div></div></section>
+    <section className="bg-[var(--clay)] py-14 text-white"><div className="page-shell flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between"><div><p className="text-xs font-bold uppercase tracking-[0.2em] text-white/75">Have a site or a space in mind?</p><h2 className="mt-3 font-display text-4xl sm:text-5xl">Tell us what needs to work better.</h2></div><div className="flex flex-col gap-3 sm:flex-row"><Link href="/contact" className="focus-ring flex min-h-12 items-center justify-center bg-white px-6 font-bold text-[var(--clay)]">Book a design consultation</Link><a href={`tel:${STUDIO_CONFIG.contact.phone.replace(/\s/g, '')}`} className="focus-ring flex min-h-12 items-center justify-center border border-white px-6 font-bold">{STUDIO_CONFIG.contact.phone}</a></div></div></section>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c') }} />
+  </>;
 }
