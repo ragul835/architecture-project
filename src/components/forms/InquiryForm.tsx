@@ -16,8 +16,8 @@ export function InquiryForm() {
   const [feedback, setFeedback] = useState('');
   const [ticket, setTicket] = useState('');
   useEffect(() => {
-    const service = search.get('service'); const stage = search.get('stage'); const area = search.get('area'); const budget = search.get('budget'); const scope = search.get('scope');
-    setForm((current) => ({ ...current, requiredService: service && labels[service] ? service : current.requiredService, projectStage: stage === 'renovation' ? 'renovation' : current.projectStage, area: area || current.area, budgetRange: budget || current.budgetRange, message: scope ? `Estimator scope: ${scope}` : current.message }));
+    const service = search.get('service');
+    setForm((current) => ({ ...current, requiredService: service && labels[service] ? service : current.requiredService }));
   }, [search]);
   const summary = useMemo(() => `Hello AURA, I submitted inquiry ${ticket || ''}. Name: ${form.fullName}. Service: ${labels[form.requiredService] || form.requiredService}. Location: ${form.city}, ${form.state}. Area: ${form.area || 'TBD'} sq ft. Budget: ${form.budgetRange || 'TBD'}.`, [form, ticket]);
   const update = <K extends keyof InquiryPayload>(key: K, value: InquiryPayload[K]) => setForm((current) => ({ ...current, [key]: value }));

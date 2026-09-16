@@ -9,6 +9,12 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  async redirects() {
+    return [
+      { source: '/process', destination: '/services', permanent: true },
+      { source: '/cost-estimator', destination: '/contact', permanent: true },
+    ];
+  },
   async headers() {
     const securityHeaders = [
       { key: 'X-Content-Type-Options', value: 'nosniff' },

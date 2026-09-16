@@ -17,7 +17,29 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#242522' };
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#f4f0e8' };
+
+const themeInitializer = `
+  (function () {
+    var theme = 'light';
+    try {
+      var stored = window.localStorage.getItem('aura-theme');
+      if (stored === 'light' || stored === 'dark') {
+        theme = stored;
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    } catch (error) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+    }
+    var root = document.documentElement;
+    root.classList.add(theme);
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    var themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#181916' : '#f4f0e8');
+  })();
+`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const professionalService = {
@@ -28,6 +50,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   };
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializer }} />
+      </head>
       <body className="min-h-screen pb-20 antialiased sm:pb-0">
         <ThemeProvider>
           <a href="#main-content" className="fixed left-3 top-3 z-[100] -translate-y-24 bg-[var(--ink)] px-4 py-3 text-sm text-[var(--canvas)] focus:translate-y-0">Skip to content</a>

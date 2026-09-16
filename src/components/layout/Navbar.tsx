@@ -10,7 +10,7 @@ import { ThemeToggle } from './ThemeToggle';
 const links = [
   ['/', 'Home'], ['/about', 'About'], ['/services', 'Services'],
   ['/services/interior-design', 'Interiors'], ['/services/exterior-design', 'Exteriors'],
-  ['/portfolio', 'Portfolio'], ['/process', 'Process'], ['/cost-estimator', 'Estimator'],
+  ['/portfolio', 'Portfolio'],
 ] as const;
 
 export function Navbar() {

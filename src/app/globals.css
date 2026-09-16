@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: light;
   --canvas: #f4f0e8;
   --surface: #fbf9f4;
   --ink: #211f1b;
@@ -15,6 +16,7 @@
 }
 
 .dark {
+  color-scheme: dark;
   --canvas: #181916;
   --surface: #22231f;
   --ink: #f2ede4;
@@ -28,8 +30,10 @@
 
 * { border-color: var(--line); }
 html { scroll-behavior: smooth; }
-body {
+html, body {
   background: var(--canvas);
+}
+body {
   color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;

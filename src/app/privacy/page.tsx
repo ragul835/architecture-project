@@ -29,7 +29,7 @@ export default function PrivacyPage() {
         <section className="space-y-2">
           <h2 className="font-serif text-xl font-bold text-neutral-900 dark:text-neutral-100">1. Information Collection</h2>
           <p>
-            {STUDIO_CONFIG.name} (&quot;AURA&quot;) collects the information you voluntarily submit through the project inquiry form, including your name, email address, phone number, and project brief. The cost estimator runs in your browser and does not submit its selections unless you choose to include them in an inquiry.
+            {STUDIO_CONFIG.name} (&quot;AURA&quot;) collects the information you voluntarily submit through the project inquiry form, including your name, email address, phone number, and project brief.
           </p>
         </section>
 
